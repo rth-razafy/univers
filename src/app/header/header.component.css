@@ -1,0 +1,10 @@
+.nav-pills .nav-link {
+    text-transform: uppercase;
+    color: #000;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: red;
+    color: #fff;
+}

@@ -1,0 +1,71 @@
+<p-tree [value]="files1">
+    <ng-template let-file pTemplate="default">
+        {{file.label}}
+    </ng-template>
+    <ng-template let-file pTemplate="button">
+        {{file.label}}
+        <span class="p-buttonset" style="margin-left: 10px;">
+        <button pButton type="button" title="Modifier" (click)="functModify()" icon="pi pi-pencil" class="p-button-sm p-button-success">
+        </button>
+        <button pButton type="button" title="Supprimer" (click)="functDelete()" icon="pi pi-trash" class="p-button-sm p-button-danger">
+        </button>
+        </span>
+    </ng-template>
+    <ng-template let-file pTemplate="groupe">
+        <a pButton label="{{file.label}}" routerLink="/univers/ajout-portefeuille" routerLinkActive="active" ariaCurrentWhenActive="page" class="p-button-text no-padding no-color"></a>
+    </ng-template>
+    <ng-template let-file pTemplate="uo">
+        <button pButton type="button" label="{{file.label}}" (click)="addUoCustom()" class="p-button-text no-padding no-color"></button>
+    </ng-template>
+</p-tree>
+
+<!-- <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" [style]="{width: '50vw'}"></p-confirmDialog>
+
+<p-dialog [(visible)]="addGroupe" [style]="{width: '60vw'}" modal="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Rattachement des portefeuilles -</span> <strong>[SOUS-UNIVERS]/[GRP PORTEFEUILLE]/[TYPOLOGIE]</strong>
+        </div>
+    </ng-template>
+    <p-pickList sourceHeader="Portefeuilles disponible" targetHeader="Portefeuilles rattachés" [source]="list1" [target]="list2" filterBy="label" [showSourceControls]="false" [showTargetControls]="false">
+        <ng-template let-list pTemplate="item">
+            <div class="item-list">
+                <span class="picto">
+                  <span class="pi pi-circle-fill {{list.color}}"></span>
+                </span>
+                <span class="indice">
+                  <span class="isTarget">(</span>{{list.indice}}<span class="isTarget">)</span>
+                </span>
+                <span>{{list.label}}</span>
+            </div>
+        </ng-template>
+    </p-pickList>
+    <div id="addComments" class="mt-3">
+        <label for="" class="mb-2">Commentaires</label>
+        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+    </div>
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Annuler changements" class="p-button p-button-default">
+      </button>
+        <button pButton type="button" label="Confirmer" class="p-button p-button-success">
+      </button>
+    </div>
+</p-dialog>
+
+<p-dialog [(visible)]="addUo" [style]="{width: '60vw'}" modal="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Création d'une UO Custom</span>
+        </div>
+    </ng-template>
+    <div id="addUo" class="d-flex">
+        <label for="">Nom de l'UO<sup>*</sup></label>
+        <input type="text" pInputText class="p-inputtext-sm" placeholder="Custom 1x">
+    </div>
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Annuler" class="p-button p-button-default">
+      </button>
+        <button pButton type="button" label="Créer" class="p-button p-button-success">
+      </button>
+    </div>
+</p-dialog> -->

@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <span>Rattachement des portefeuilles -</span> <strong>[SOUS-UNIVERS]/[GRP PORTEFEUILLE]/[TYPOLOGIE]</strong>
+    </div>
+    <div class="card-body">
+        <p-pickList sourceHeader="Portefeuilles disponible" targetHeader="Portefeuilles rattachés" [source]="list1" [target]="list2" filterBy="label" [showSourceControls]="false" [showTargetControls]="false">
+            <ng-template let-list pTemplate="item">
+                <div class="item-list">
+                    <span class="picto">
+                      <span class="pi pi-circle-fill {{list.color}}"></span>
+                    </span>
+                    <span class="indice">
+                      <span class="isTarget">(</span>{{list.indice}}<span class="isTarget">)</span>
+                    </span>
+                    <span>{{list.label}}</span>
+                </div>
+            </ng-template>
+        </p-pickList>
+        <div id="addComments" class="mt-3">
+            <label for="" class="mb-2">Commentaires</label>
+            <textarea [rows]="5" [cols]="30" pInputTextarea></textarea>
+        </div>
+        <div class="btn-picklist-add">
+            <button pButton type="button" label="Annuler changements" class="p-button p-button-default">
+          </button>
+            <button pButton type="button" label="Confirmer" class="p-button p-button-success">
+          </button>
+        </div>
+    </div>
+</div>

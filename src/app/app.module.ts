@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { UniversComponent } from './univers/univers.component';
 import { AddWalletComponent } from './univers/add-wallet/add-wallet.component';
 import { HomeUniversComponent } from './univers/home-univers/home-univers.component';
+import { AddCustomUoComponent } from './univers/add-custom-uo/add-custom-uo.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HomeUniversComponent } from './univers/home-univers/home-univers.compon
     HomeComponent,
     UniversComponent,
     AddWalletComponent,
-    HomeUniversComponent
+    HomeUniversComponent,
+    AddCustomUoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,12 +54,16 @@ import { HomeUniversComponent } from './univers/home-univers/home-univers.compon
       {path:'home',component: HomeComponent},
       {path:'univers',component: UniversComponent,children: [
         {
-          path: '', // child route path
-          component: HomeUniversComponent, // child route component that the router renders
+          path: '',
+          component: HomeUniversComponent,
         },
         {
-          path: 'ajout-portefeuille', // child route path
-          component: AddWalletComponent, // child route component that the router renders
+          path: 'ajout-portefeuille',
+          component: AddWalletComponent,
+        },
+        {
+          path: 'ajout-uo',
+          component: AddCustomUoComponent,
         }
       ]
       },

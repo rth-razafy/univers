@@ -26,6 +26,8 @@ import { UniversComponent } from './univers/univers.component';
 import { AddWalletComponent } from './univers/add-wallet/add-wallet.component';
 import { HomeUniversComponent } from './univers/home-univers/home-univers.component';
 import { AddCustomUoComponent } from './univers/add-custom-uo/add-custom-uo.component';
+import { FolderComponent } from './folder/folder.component';
+import { CreateFolderComponent } from './folder/create-folder/create-folder.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AddCustomUoComponent } from './univers/add-custom-uo/add-custom-uo.comp
     UniversComponent,
     AddWalletComponent,
     HomeUniversComponent,
-    AddCustomUoComponent
+    AddCustomUoComponent,
+    FolderComponent,
+    CreateFolderComponent
   ],
   imports: [
     BrowserModule,
@@ -64,11 +68,41 @@ import { AddCustomUoComponent } from './univers/add-custom-uo/add-custom-uo.comp
         {
           path: 'ajout-uo',
           component: AddCustomUoComponent,
-        }
+        },
       ]
-      },
-      // {path:'ajout-portefeuille',component: SidebarComponent},
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
+    },
+    {
+      path: 'folder',
+      component: FolderComponent,
+      children: [
+        {
+          path: 'create-folder',
+          component: CreateFolderComponent
+        },
+        {
+          path: 'init-folder',
+          component: AddCustomUoComponent
+        },
+        {
+          path: 'wait-folder',
+          component: AddCustomUoComponent
+        },
+        {
+          path: 'vigueur-folder',
+          component: AddCustomUoComponent
+        },
+        {
+          path: 'cloture-folder',
+          component: AddCustomUoComponent
+        },
+        {
+          path: 'archive-folder',
+          component: AddCustomUoComponent
+        },
+        {path: '', redirectTo: '/folder', pathMatch: 'full'}
+      ]
+    },
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
 		])
   ],
   providers: [NodeService, ConfirmationService],

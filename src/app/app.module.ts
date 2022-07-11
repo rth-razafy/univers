@@ -28,6 +28,8 @@ import { HomeUniversComponent } from './univers/home-univers/home-univers.compon
 import { AddCustomUoComponent } from './univers/add-custom-uo/add-custom-uo.component';
 import { FolderComponent } from './folder/folder.component';
 import { CreateFolderComponent } from './folder/create-folder/create-folder.component';
+import { InitFolderComponent } from './folder/init-folder/init-folder.component';
+import { WaitFolderComponent } from './folder/wait-folder/wait-folder.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CreateFolderComponent } from './folder/create-folder/create-folder.comp
     HomeUniversComponent,
     AddCustomUoComponent,
     FolderComponent,
-    CreateFolderComponent
+    CreateFolderComponent,
+    InitFolderComponent,
+    WaitFolderComponent
   ],
   imports: [
     BrowserModule,
@@ -81,25 +85,25 @@ import { CreateFolderComponent } from './folder/create-folder/create-folder.comp
         },
         {
           path: 'init-folder',
-          component: AddCustomUoComponent
+          component: InitFolderComponent
         },
         {
           path: 'wait-folder',
-          component: AddCustomUoComponent
+          component: WaitFolderComponent
         },
         {
           path: 'vigueur-folder',
-          component: AddCustomUoComponent
+          component: InitFolderComponent
         },
         {
           path: 'cloture-folder',
-          component: AddCustomUoComponent
+          component: InitFolderComponent
         },
         {
           path: 'archive-folder',
-          component: AddCustomUoComponent
+          component: InitFolderComponent
         },
-        {path: '', redirectTo: '/folder', pathMatch: 'full'}
+        {path: '', redirectTo: '/folder/create-folder', pathMatch: 'full'}
       ]
     },
     {path: '', redirectTo: '/home', pathMatch: 'full'},

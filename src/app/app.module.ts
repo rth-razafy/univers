@@ -17,6 +17,9 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DropdownModule} from 'primeng/dropdown';
+import {OrderListModule} from 'primeng/orderlist';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -52,6 +55,9 @@ import { WaitFolderComponent } from './folder/wait-folder/wait-folder.component'
     TreeModule,
     ButtonModule,
     InputTextModule,
+    CheckboxModule,
+    DropdownModule,
+    OrderListModule,
     InputTextareaModule,
     DialogModule,
     ConfirmDialogModule,

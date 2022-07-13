@@ -1,1 +1,146 @@
-<p>init-folder works!</p>
+<h2 class="text-center text-danger mb-4">
+    Dossier Agreement
+</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row" id="rules-univers">
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Code dossier :</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" pInputText class="p-inputtext-sm text-center bg-light w-100" value="125656" placeholder="Code dossier">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Date de début <sup class="text-danger">*</sup>:</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="date" pInputText class="p-inputtext-sm text-end w-100" value="2022-01-01">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Intitulé de la prestation <sup class="text-danger">*</sup>:</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="Reporting" placeholder="Intitulé de la prestation">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Date de fin :</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="date" pInputText class="p-inputtext-sm text-end w-100">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Entité délégatrice :</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="MI" placeholder="Entité délégatrice">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Typo dossier :</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="field-checkbox">
+                            <p-checkbox class="me-3" name="typoFolder" label="SLA" value=""></p-checkbox>
+                            <p-checkbox name="typoFolder" label="NDA" value=""></p-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                        <strong>Entité délégataire <sup class="text-danger">*</sup>:</strong>
+                    </div>
+                    <div class="col-sm-8">
+                        <p-dropdown class="w-100" [options]="entity" optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5 mt-4 mb-4">
+            <div class="col-sm-3">
+                <p-orderList header="Portefeuilles inclus dans le dossier" [value]="list1" filterBy="label" styleClass="cu-orderListWallet">
+                    <ng-template let-list pTemplate="item">
+                        <div class="item-list">
+                            <span class="indice">
+                              {{list.indice}}
+                            </span>
+                            <span>{{list.label}}</span>
+                        </div>
+                    </ng-template>
+                </p-orderList>
+                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier la liste de portefeuille</button>
+            </div>
+            <div class="col-sm-3">
+                <p-orderList header="Unités Organisationnelles disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListUo">
+                    <ng-template let-list pTemplate="item">
+                        <div class="item-list">
+                            <span class="picto">
+                                <span class="pi pi-circle-fill {{list.color}}"></span>
+                            </span>
+                            <span>{{list.label}}</span>
+                        </div>
+                    </ng-template>
+                </p-orderList>
+                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les UO rattachées</button>
+            </div>
+            <div class="col-sm-3">
+                <p-orderList header="Contributeurs disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListAgent">
+                    <ng-template let-list pTemplate="item">
+                        <div class="item-list">
+                            <span class="picto">
+                                <span class="pi pi-circle-fill {{list.color}}"></span>
+                            </span>
+                            <span>{{list.label}}</span>
+                        </div>
+                    </ng-template>
+                </p-orderList>
+                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les agents rattachées</button>
+            </div>
+            <div class="col-sm-3">
+                <p-orderList header="Comptes techniques disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListAccount">
+                    <ng-template let-list pTemplate="item">
+                        <div class="item-list">
+                            <span class="picto">
+                                <span class="pi pi-circle-fill {{list.color}}"></span>
+                            </span>
+                            <span>{{list.label}}</span>
+                        </div>
+                    </ng-template>
+                </p-orderList>
+                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les comptes rattachés</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <button pButton type="button" label="Modifier la liste" class="p-button p-button-default w-50">
+                </button>
+            </div>
+            <div class="col-sm-6 text-center">
+                <button pButton type="button" label="Sauvegarde" class="p-button p-button-success w-50">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

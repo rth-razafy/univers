@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: none !important;
+}
+
 .no-padding {
     padding: 0 !important;
 }
@@ -71,18 +77,30 @@ span.p-treenode-label span {
     padding: 0 !important;
 }
 
-.p-picklist .p-picklist-header {
+.p-picklist .p-picklist-header,
+.cu-orderListWallet .p-orderlist-header,
+.cu-orderListAgent .p-orderlist-header,
+.cu-orderListAccount .p-orderlist-header,
+.cu-orderListUo .p-orderlist-header {
     background: transparent !important;
     border: 0 !important;
     padding: 0 0 10px !important;
     text-align: center;
 }
 
-.p-picklist-filter-container {
+.p-picklist-filter-container,
+.cu-orderListWallet .p-orderlist-filter-container,
+.cu-orderListAgent .p-orderlist-filter-container,
+.cu-orderListAccount .p-orderlist-filter-container,
+.cu-orderListUo .p-orderlist-filter-container {
     border: 0 !important;
     padding: 0 0 15px !important;
 }
 
+.cu-orderListWallet div.item-list,
+.cu-orderListAgent div.item-list,
+.cu-orderListAccount div.item-list,
+.cu-orderListUo div.item-list,
 .p-picklist-source div.item-list,
 .p-picklist-target div.item-list {
     display: flex;
@@ -94,6 +112,7 @@ span.p-treenode-label span {
     display: none;
 }
 
+.cu-orderListWallet span.indice,
 .p-picklist-source span.indice {
     background: #000;
     padding: 3px;
@@ -104,6 +123,7 @@ span.p-treenode-label span {
     font-weight: bold;
 }
 
+.cu-orderListWallet span.indice,
 .p-picklist-target span.indice {
     margin: 0 8px;
 }
@@ -153,4 +173,36 @@ button.p-button.p-button-default:hover {
 
 .p-tree .p-tree-container .p-treenode {
     min-width: 400px;
+}
+
+ul.p-tree-container.ng-star-inserted {
+    height: 500px;
+}
+
+.p-dropdown {
+    width: 100%;
+}
+
+.p-checkbox-box,
+.p-dropdown {
+    box-shadow: none !important;
+}
+
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+    color: #fff !important;
+}
+
+.cu-orderListWallet .p-orderlist-controls,
+.cu-orderListAgent .p-orderlist-controls,
+.cu-orderListAccount .p-orderlist-controls,
+.cu-orderListUo .p-orderlist-controls {
+    display: none;
+}
+
+.p-orderlist.cu-orderListWallet .p-orderlist-list .p-orderlist-item,
+.p-orderlist.cu-orderListAgent .p-orderlist-list .p-orderlist-item,
+.p-orderlist.cu-orderListAccount .p-orderlist-list .p-orderlist-item,
+.p-orderlist.cu-orderListUo .p-orderlist-list .p-orderlist-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

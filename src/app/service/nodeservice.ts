@@ -13,4 +13,10 @@ export class NodeService {
       .toPromise()
       .then(res => <TreeNode[]>res.data);
     }
+    
+    getWallet() {
+    return this.http.get<any>('assets/wallet.json')
+      .toPromise()
+      .then(res => <TreeNode[]>res.data);
+    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NodeService } from 'src/app/service/nodeservice';
 
 @Component({
   selector: 'app-add-wallet',
@@ -7,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddWalletComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nodeService: NodeService) { }
 
+  wallet: any[] = [];
+  
   list1: any[] = [];
 
   list2: any[] = [];
 
   ngOnInit() {
-    this.list1 = [
+    this.nodeService.getWallet().then(wallet => this.wallet = wallet);
+    /* this.list1 = [
       {
         label: "Nom 1",
         indice: 2451,
@@ -35,7 +39,7 @@ export class AddWalletComponent implements OnInit {
         indice: 2454,
         color: "primary"
       }
-    ];
+    ]; */
     this.list2 = [];
   }
 

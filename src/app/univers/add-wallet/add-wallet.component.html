@@ -3,7 +3,7 @@
         <span>Rattachement des portefeuilles -</span> <strong>[SOUS-UNIVERS]/[GRP PORTEFEUILLE]/[TYPOLOGIE]</strong>
     </div>
     <div class="card-body">
-        <p-pickList sourceHeader="Portefeuilles disponible" targetHeader="Portefeuilles rattachés" [source]="list1" [target]="list2" filterBy="label" [showSourceControls]="false" [showTargetControls]="false">
+        <p-pickList sourceHeader="Portefeuilles disponible" targetHeader="Portefeuilles rattachés" [source]="wallet" [target]="list2" filterBy="label" [showSourceControls]="false" [showTargetControls]="false">
             <ng-template let-list pTemplate="item">
                 <div class="item-list">
                     <span class="picto">

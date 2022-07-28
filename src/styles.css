@@ -46,8 +46,16 @@ span.pi.primary:before {
     color: blue;
 }
 
+span.pi.primary-light:before {
+    color: #7486A1;
+}
+
 span.pi.secondary:before {
     color: green;
+}
+
+span.pi.secondary-light:before {
+    color: #67815C;
 }
 
 span.pi.danger:before {
@@ -56,6 +64,10 @@ span.pi.danger:before {
 
 span.pi.warning:before {
     color: darkorange;
+}
+
+span.pi.warning-light:before {
+    color: #9E8C5B;
 }
 
 span.p-treenode-label span {

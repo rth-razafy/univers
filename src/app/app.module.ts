@@ -20,6 +20,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import {DropdownModule} from 'primeng/dropdown';
 import {OrderListModule} from 'primeng/orderlist';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -60,6 +62,8 @@ import { WaitFolderComponent } from './folder/wait-folder/wait-folder.component'
     OrderListModule,
     InputTextareaModule,
     DialogModule,
+    MessageModule,
+    MessagesModule,
     ConfirmDialogModule,
     PickListModule,
     HttpClientModule,

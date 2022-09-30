@@ -13,6 +13,7 @@ interface Entity {
 export class InitFolderComponent implements OnInit {
 
   entity: Entity[];
+  isError: Boolean = false;
 
   list1;
 
@@ -46,6 +47,10 @@ export class InitFolderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  saveData(){
+    this.isError = true;
   }
 
 }

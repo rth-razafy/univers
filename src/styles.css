@@ -218,3 +218,9 @@ ul.p-tree-container.ng-star-inserted {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+p-message>div {
+    width: 100%;
+    margin-bottom: 15px !important;
+    justify-content: flex-start !important;
+}

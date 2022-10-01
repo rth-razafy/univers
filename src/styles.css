@@ -147,11 +147,6 @@ span.p-treenode-label span {
     border-color: #000 !important;
 }
 
-.p-picklist .p-picklist-buttons .p-button:nth-child(2),
-.p-picklist .p-picklist-buttons .p-button:nth-child(4) {
-    display: none !important;
-}
-
 .btn-picklist-add {
     display: flex;
     align-items: center;

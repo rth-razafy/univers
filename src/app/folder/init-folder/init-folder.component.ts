@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Entity {
   name: string
@@ -17,7 +18,7 @@ export class InitFolderComponent implements OnInit {
 
   list1;
 
-  constructor() {
+  constructor(private router: Router) {
     this.entity = [
       { name: 'Ni'},
       { name: 'Mi'}
@@ -51,6 +52,7 @@ export class InitFolderComponent implements OnInit {
 
   saveData(){
     this.isError = true;
+    this.router.navigate(['folder/wait-folder']);
   }
 
 }

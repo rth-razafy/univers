@@ -116,7 +116,7 @@ import { WaitFolderComponent } from './folder/wait-folder/wait-folder.component'
           path: 'archive-folder',
           component: InitFolderComponent
         },
-        {path: '', redirectTo: '/folder/create-folder', pathMatch: 'full'}
+        {path: '', redirectTo: '/folder/init-folder', pathMatch: 'full'}
       ]
     },
     {path: '', redirectTo: '/home', pathMatch: 'full'},

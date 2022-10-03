@@ -219,3 +219,7 @@ p-message>div {
     margin-bottom: 15px !important;
     justify-content: flex-start !important;
 }
+
+.p-steps ul li {
+    background: #ddd;
+}

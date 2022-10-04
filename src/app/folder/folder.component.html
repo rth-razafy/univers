@@ -8,5 +8,8 @@
         <a routerLink="/folder/archive-folder" routerLinkActive="active" ariaCurrentWhenActive="page" class="btn btn-lg btn-primary">Dossier archivé</a>
     </div>
 </div> -->
-<p-steps [model]="items" [readonly]="true"></p-steps>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<p-steps [model]="items" [(activeIndex)]="position" [readonly]="true"></p-steps>
+
+<app-init-folder *ngIf="position==0"></app-init-folder>
+<app-wait-folder *ngIf="position==1"></app-wait-folder>

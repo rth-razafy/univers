@@ -10,26 +10,16 @@ export class FolderComponent implements OnInit {
 
   items!: MenuItem[];
 
+  position: number = 0;
 
   constructor() { }
 
   ngOnInit() {
-    this.items = [{
-      label: 'Initiation du dossier',
-      routerLink: 'init-folder'
-    },
-    {
-      label: 'Dossier en attente de validation',
-      routerLink: 'wait-folder'
-    },
-    {
-      label: 'Dossier en vigueur',
-      routerLink: 'vigueur-folder'
-    },
-    {
-      label: 'Dossier clôturé',
-      routerLink: 'cloture-folder'
-    }
+    this.items = [
+      { label: 'Initiation du dossier' },
+      { label: 'Dossier en attente de validation' },
+      { label: 'Dossier en vigueur' },
+      { label: 'Dossier clôturé' }
     ];
   }
 }

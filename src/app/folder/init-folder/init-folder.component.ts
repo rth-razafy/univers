@@ -52,7 +52,7 @@ export class InitFolderComponent implements OnInit {
 
   saveData(){
     this.isError = true;
-    this.router.navigate(['folder/wait-folder']);
+
   }
 
 }

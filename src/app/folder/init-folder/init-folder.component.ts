@@ -52,7 +52,6 @@ export class InitFolderComponent implements OnInit {
 
   saveData(){
     this.isError = true;
-
   }
 
 }

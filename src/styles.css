@@ -219,24 +219,3 @@ p-message>div {
     margin-bottom: 15px !important;
     justify-content: flex-start !important;
 }
-
-.p-steps ul li {
-    background: #ddd;
-    padding: 10px 20px;
-    justify-content: flex-start;
-}
-
-.p-steps ul li:before {
-    border: none !important;
-}
-
-.p-steps ul li.p-steps-current {
-    background: yellowgreen;
-}
-
-.p-steps ul li a {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 15px;
-}

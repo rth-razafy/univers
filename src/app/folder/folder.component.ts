@@ -10,9 +10,12 @@ export class FolderComponent implements OnInit {
 
   items!: MenuItem[];
 
+  isError: boolean = false;
+
   position: number = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.items = [
@@ -22,4 +25,5 @@ export class FolderComponent implements OnInit {
       { label: 'Dossier clôturé' }
     ];
   }
+
 }

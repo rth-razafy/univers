@@ -24,6 +24,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {StepsModule} from 'primeng/steps';
 import {MenuItem} from 'primeng/api';
+import {TooltipModule} from 'primeng/tooltip';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -66,6 +67,7 @@ import { WaitFolderComponent } from './folder/wait-folder/wait-folder.component'
     InputTextareaModule,
     DialogModule,
     MessageModule,
+    TooltipModule,
     MessagesModule,
     ConfirmDialogModule,
     PickListModule,

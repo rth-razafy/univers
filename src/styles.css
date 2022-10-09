@@ -219,3 +219,73 @@ p-message>div {
     margin-bottom: 15px !important;
     justify-content: flex-start !important;
 }
+
+
+/***
+New modifications
+***/
+
+.p-steps-item span.p-steps-number {
+    display: none;
+}
+
+.p-steps .p-steps-item:before {
+    border: none !important;
+}
+
+.p-steps .p-steps-item {
+    background-image: url(assets/img/bg_arrow_step_prev.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 15px 30px;
+    width: 25%;
+    margin-left: -35px;
+    opacity: 1 !important;
+    color: #000;
+}
+
+.p-steps .p-steps-item.p-steps-current~.p-steps-item {
+    background-image: url(assets/img/bg_arrow_step_default.png);
+}
+
+.p-steps .p-steps-item.p-steps-current {
+    background-image: url(assets/img/bg_arrow_step_active.png);
+}
+
+.p-steps .p-steps-item:first-child {
+    margin-left: 0;
+}
+
+.p-steps .p-steps-item a span {
+    margin: 0 !important;
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.statut-step {
+    padding: 15px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    font-weight: 600;
+}
+
+.step-statut {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-orderlist-list span.picto span:before {
+    font-size: 10px;
+}
+
+.p-orderlist-list span.picto span {
+    margin-right: 15px;
+}
+
+.p-orderlist-list span.picto+span {
+    font-weight: 600;
+}

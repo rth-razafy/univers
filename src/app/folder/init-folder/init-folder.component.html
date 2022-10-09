@@ -1,6 +1,12 @@
-<h2 class="text-center text-danger mb-4">
-    Dossier Agreement
-</h2>
+<div class="step-statut">
+    <h2 class="text-center text-danger mt-4 mb-4">
+        Dossier Agreement
+    </h2>
+    <!-- bg-secondary bg-danger  -->
+    <div class="statut-step bg-warning text-light">
+        Dossier en attente de validation
+    </div>
+</div>
 <div class="card mb-4">
     <div class="card-body">
         <!-- Message d'erreur -->
@@ -111,7 +117,7 @@
                             <span class="picto">
                                 <span class="pi pi-circle-fill {{list.color}}"></span>
                             </span>
-                            <span>{{list.label}}</span>
+                            <span class="text-{{list.colorText}}">{{list.label}}</span>
                         </div>
                     </ng-template>
                 </p-orderList>
@@ -124,7 +130,7 @@
                             <span class="picto">
                                 <span class="pi pi-circle-fill {{list.color}}"></span>
                             </span>
-                            <span>{{list.label}}</span>
+                            <span class="text-{{list.colorText}}">{{list.label}}</span>
                         </div>
                     </ng-template>
                 </p-orderList>
@@ -137,7 +143,7 @@
                             <span class="picto">
                                 <span class="pi pi-circle-fill {{list.color}}"></span>
                             </span>
-                            <span>{{list.label}}</span>
+                            <span class="text-{{list.colorText}}">{{list.label}}</span>
                         </div>
                     </ng-template>
                 </p-orderList>

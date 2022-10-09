@@ -1,7 +1,4 @@
 <div class="step-statut">
-    <h2 class="text-center text-danger mt-4 mb-4">
-        Dossier Agreement
-    </h2>
     <!-- bg-secondary bg-danger  -->
     <div class="statut-step bg-warning text-light">
         Dossier en attente de validation
@@ -18,63 +15,63 @@
         <div class="row" id="rules-univers">
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
                         <strong>Code dossier :</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <input type="text" pInputText class="p-inputtext-sm text-center bg-light w-100" value="125656" placeholder="Code dossier">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
                         <strong>Date de début <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <input type="date" pInputText class="p-inputtext-sm text-end w-100" value="2022-01-01">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
                         <strong>Intitulé de la prestation <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="Reporting" placeholder="Intitulé de la prestation">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
                         <strong>Date de fin :</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <input type="date" pInputText class="p-inputtext-sm text-end w-100">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4 d-flex align-items-center">
-                        <span class="picto me-1" pTooltip="La société délégante est la société de tête" tooltipPosition="bottom">
+                    <div class="col-sm-6 col-md-6 col-lg-4 d-flex align-items-center">
+                        <strong>Entité délégatrice :</strong>
+                        <span class="picto ms-1" pTooltip="La société délégante est la société de tête" tooltipPosition="bottom">
                             <span class="pi pi-info-circle"></span>
                         </span>
-                        <strong>Entité délégatrice :</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="MI" placeholder="Entité délégatrice">
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
                         <strong>Typo dossier :</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <div class="field-checkbox">
                             <p-checkbox class="me-3" name="typoFolder" label="SLA" value=""></p-checkbox>
                             <p-checkbox name="typoFolder" label="NDA" value=""></p-checkbox>
@@ -84,13 +81,13 @@
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-4 d-flex align-items-center">
-                        <span class="picto me-1">
+                    <div class="col-sm-6 col-md-6 col-lg-4 d-flex align-items-center">
+                        <strong>Entité délégataire <sup class="text-danger">*</sup>:</strong>
+                        <span class="picto ms-1">
                             <span class="pi pi-info-circle"></span>
                         </span>
-                        <strong>Entité délégataire <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-6 col-md-6 col-lg-8">
                         <p-dropdown class="w-100" [options]="entity" optionLabel="name"></p-dropdown>
                     </div>
                 </div>

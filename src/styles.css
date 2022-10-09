@@ -238,8 +238,6 @@ New modifications
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 15px 30px;
-    width: 25%;
-    margin-left: -35px;
     opacity: 1 !important;
     color: #000;
 }
@@ -262,6 +260,11 @@ New modifications
     font-weight: 600;
 }
 
+.p-orderlist .p-orderlist-header {
+    height: 58px;
+    overflow: hidden;
+}
+
 .statut-step {
     padding: 15px 20px;
     border-radius: 10px;
@@ -276,6 +279,8 @@ New modifications
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 60px;
+    margin-bottom: 25px;
 }
 
 .p-orderlist-list span.picto span:before {
@@ -288,4 +293,31 @@ New modifications
 
 .p-orderlist-list span.picto+span {
     font-weight: 600;
+}
+
+.p-checkbox-label {
+    margin-left: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+    .p-steps .p-steps-item {
+        width: 25%;
+        margin-left: -25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .p-steps ul {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .p-steps .p-steps-item.p-steps-current {
+        background-color: #b9c1f4;
+    }
+    .p-steps .p-steps-item {
+        background-color: #15c246;
+    }
+    .p-steps .p-steps-item.p-steps-current~.p-steps-item {
+        background-color: #ccc;
+    }
 }

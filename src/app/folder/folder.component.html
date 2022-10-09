@@ -9,6 +9,10 @@
     </div>
 </div> -->
 <!-- <router-outlet></router-outlet> -->
+<h2 class="text-center text-danger mt-4 mb-4">
+    Dossier Agreement
+</h2>
+
 <p-steps [model]="items" [(activeIndex)]="position" [readonly]="true"></p-steps>
 
 <app-init-folder *ngIf="position==0"></app-init-folder>

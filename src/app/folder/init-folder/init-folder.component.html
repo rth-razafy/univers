@@ -1,161 +1,720 @@
-<div class="step-statut">
-    <!-- bg-secondary bg-danger  -->
-    <div class="statut-step bg-warning text-light">
+
+  <div class="card mb-4">
+<br />
+    <h6 class="text-center text-danger mb-4">
+        Dossier Agreement
+      </h6>
+       
+    
+    <!--   <div class="statut-step alert alert-warning" role="alert">
+        This is a warning alert—check it out!
+      </div>
+      
+     <div class="statut-step bg-warning text-light">
         Dossier en attente de validation
-    </div>
-</div>
-<div class="card mb-4">
+    </div> -->
+      
     <div class="card-body">
-        <!-- Message d'erreur -->
-        <div class="row" *ngIf="isError">
-            <div class="col-sm-12">
-                <p-message class="col-sm-12" severity="error" text="An example danger alert with an icon"></p-message>
-            </div>
-        </div>
+       
+          <!--  <div class="alert alert-danger" role="alert">
+           <p> This is a danger alert—check it out!</p>
+           <p> This is a danger alert—check it out!</p>
+          </div>   -->
+<p>
+          <p-steps [model]="items" [readonly]="true" [activeIndex]="2"></p-steps>
+        </p>
+
+       
         <div class="row" id="rules-univers">
+
+            
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="col-sm-4">
                         <strong>Code dossier :</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <input type="text" pInputText class="p-inputtext-sm text-center bg-light w-100" value="125656" placeholder="Code dossier">
+                    <div class="col-sm-8">
+                        <input type="text" pInputText 
+                        
+                        [ngClass]="'p-inputtext-sm text-center bg-light w-100'" 
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                        [value]="prestationModelResult.codeDossier==0 ? '' 
+                        : prestationModelResult.codeDossier" placeholder="Code dossier" 
+                        [(ngModel)]="prestationModelResult.codeDossier"
+                        
+                        >
+                        
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="col-sm-4">
                         <strong>Date de début <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <input type="date" pInputText class="p-inputtext-sm text-end w-100" value="2022-01-01">
+                    <div class="col-sm-8">
+                       
+                        <!-- class="ng-invalid ng-dirty" 
+                            <input type="date" pInputText 
+                                                class="p-inputtext-sm text-end w-100"
+                                                 [value]="2022-01-01">
+                        -->
+                        <p-calendar 
+                        [(ngModel)]="prestationModelResult.dateDebut"
+                 
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                         dateFormat="dd/mm/yy"
+                         inputId="inputDateDebut" [showIcon]="true"
+                         ></p-calendar>
+                        
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="col-sm-4">
                         <strong>Intitulé de la prestation <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="Reporting" placeholder="Intitulé de la prestation">
+                    <div class="col-sm-8">
+                        
+                        <!-- <input type="text" 
+                        [value]="showFormDossierData?.dataDossier?.intituleAccord"
+                        pInputText class="p-inputtext-sm text-center w-100" value="Reporting" 
+                        placeholder="Intitulé de la prestation">  -->
+                        <input type="text" class="p-inputtext-sm text-center w-100" 
+                        pInputText 
+                        [(ngModel)]="prestationModelResult.namePrestation"
+                        [value]="showFormDossierData?.dataDossier?.namePrestation"
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                        > 
+
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="col-sm-4">
                         <strong>Date de fin :</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <input type="date" pInputText class="p-inputtext-sm text-end w-100">
+                    <div class="col-sm-8">
+                        <p-calendar 
+                        [(ngModel)]="prestationModelResult.dateFin"
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                        
+                         dateFormat="dd/mm/yy"
+                         inputId="inputDateFin" [showIcon]="true"></p-calendar>
+
                     </div>
                 </div>
             </div>
+           
+           
+
+           
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4 d-flex align-items-center">
-                        <strong>Entité délégatrice :</strong>
-                        <span class="picto ms-1" pTooltip="La société délégante est la société de tête" tooltipPosition="bottom">
+                    <div class="col-sm-4">
+                        <strong>Entité délégante :</strong>
+                        <span class="picto me-1" pTooltip="La société délégante est la société de tête" tooltipPosition="bottom">
                             <span class="pi pi-info-circle"></span>
                         </span>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <input type="text" pInputText class="p-inputtext-sm text-center w-100" value="MI" placeholder="Entité délégatrice">
+                    <div class="col-sm-8">
+                        <input type="text" 
+                        [value]="showFormDossierData?.dataDossier?.nameUniversDelegatrice"
+                        [(ngModel)]="prestationModelResult.nameUniversDelegatrice"
+                        pInputText class="p-inputtext-sm text-center w-100" value="" 
+                        placeholder="Entité délégatrice"
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                        >
                     </div>
                 </div>
             </div>
+            
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <strong>Typo dossier :</strong>
+                    <div class="col-sm-4">
+                        <strong>Typo dossier<sup class="text-danger">*</sup> :</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
+                    <div class="col-sm-8">
+                        <p-dropdown class="w-100" [options]="entityTypeDossier" 
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                        optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+          
+          
+          
+          
+          
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                   
+                    <div class="col-sm-4">
+
+                        <strong>Entité délégataire <sup class="text-danger">*</sup>:</strong>
+                        <span class="picto me-1" pTooltip="1.Dans un dossier de type prestation : la société délégataire est la société prestataire.
+                        2.Dans un dossier de type transparisation : la société délégataire est la société demandant la transparisation des portefeuilles" tooltipPosition="bottom">
+                            <span class="pi pi-info-circle"></span>
+                        </span>
+                    </div>
+                    <div class="col-sm-8">
+                        <p-dropdown class="w-100" [options]="entity" 
+                        optionLabel="name"
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                       
+                        ></p-dropdown>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                       
+                    </div>
+                    <div class="col-sm-8">
                         <div class="field-checkbox">
-                            <p-checkbox class="me-3" name="typoFolder" label="SLA" value=""></p-checkbox>
-                            <p-checkbox name="typoFolder" label="NDA" value=""></p-checkbox>
+                     <strong class="slamargin">
+                            <p-checkbox class="me-3" 
+                            [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                            name="typoFolder" label="SLA" value=""></p-checkbox>
+                        </strong>
+                        <strong>
+                            <p-checkbox name="typoFolder"
+                            [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                            label="NDA" value=""></p-checkbox>
+                        </strong>
                         </div>
                     </div>
                 </div>
+
             </div>
+
+
             <div class="col-sm-6 mb-2">
                 <div class="row p-0 align-items-center">
-                    <div class="col-sm-6 col-md-6 col-lg-4 d-flex align-items-center">
-                        <strong>Entité délégataire <sup class="text-danger">*</sup>:</strong>
-                        <span class="picto ms-1">
-                            <span class="pi pi-info-circle"></span>
-                        </span>
+                    <div class="col-sm-4">
+                        <strong>Application concernée <sup class="text-danger">*</sup>:</strong>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-8">
-                        <p-dropdown class="w-100" [options]="entity" optionLabel="name"></p-dropdown>
+                    <div class="col-sm-8">
+                        
+                        <!-- <input type="text" 
+                        [value]="showFormDossierData?.dataDossier?.intituleAccord"
+                        pInputText class="p-inputtext-sm text-center w-100" value="Reporting" 
+                        placeholder="Intitulé de la prestation">  -->
+                        <input type="text" class="p-inputtext-sm text-center w-100" pInputText 
+                        [(ngModel)]="prestationModelResult.applicationConcernee"
+                        [disabled]="showFormDossierData?.dataDossier?.typeRM==1"> 
+
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-6 mb-2">
+                <div class="row p-0 align-items-center">
+                    <div class="col-sm-4">
+                       
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="field-checkbox">
+                            <strong>
+                            <p-checkbox class="me-3" 
+                            [disabled]="showFormDossierData?.dataDossier?.typeRM!=1"
+                            name="typoFolder" 
+                            label="Un accord avec conformité a été obtenu" value=""></p-checkbox>
+                        </strong>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+			
+
+
+
         </div>
+
+       
         <div class="row pt-5 mt-4 mb-4">
             <div class="col-sm-3">
-                <p-orderList header="Portefeuilles inclus dans le dossier" [value]="list1" filterBy="label" styleClass="cu-orderListWallet">
+
+                <span [ngClass]="showFormDossierData?.dataDossier?.typeRM!=1 ? 'disabledOrderList' : ''">
+                <p-orderList header="Portefeuilles inclus dans le dossier" 
+                [disabled]="false" [value]="list1" filterBy="label" 
+                styleClass="cu-orderListWallet"  
+                [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
                     <ng-template let-list pTemplate="item">
-                        <div class="item-list">
-                            <span class="indice">
-                              {{list.indice}}
-                            </span>
-                            <span>{{list.label}}</span>
-                        </div>
+                            <span class="source">
+                                <span class="pi pi-circle-fill {{list.color}}"></span>
+                                <span class="p-popup">
+                                {{list.label}} {{list.id}}
+                                </span>
+                              </span>
+                 
                     </ng-template>
                 </p-orderList>
-                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier la liste de portefeuille</button>
+               </span>
+               <!--button for Portefeuilles-->
+               <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==1 ">
+                <button class="btn btn-sm btn-primary w-100 mt-3" 
+           
+                    (click)="editPortfolioList()" >
+                        Modifier la liste de portefeuille</button>
+               </ng-container>
+
+               <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM!=1 ">
+                <button class="btn btn-sm btn-primary w-100 mt-3" 
+                 
+                    (click)="editPortfolioList()" >
+                    Afficher la liste de portefeuille</button>
+               </ng-container>
+               
+
+
+            </div>
+            
+            
+            <div class="col-sm-3">
+                <span [ngClass]="showFormDossierData?.dataDossier?.typeRM==1 ? 'disabledOrderList' : ''">
+                <p-orderList header="Unités Organisationnelles disponibles" 
+                [value]="list1" filterBy="label" styleClass="cu-orderListUo"
+                [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
+                    <ng-template let-list pTemplate="item">
+                        <span class="source">
+                            <span class="pi pi-folder primary secondary"></span>
+                            <span class="p-popup">
+                            {{list.label}}</span>
+                        </span>
+                    </ng-template>
+                </p-orderList>
+                </span>
+               
+                <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==2 ">
+                    <button class="btn btn-sm btn-primary w-100 mt-3" (click)="editUOList()"
+                    >Modifier les UO rattachées</button>
+                    </ng-container>
+                <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==1">
+                <button class="btn btn-sm btn-primary w-100 mt-3" (click)="showPrestationUOUniver=true"
+                >Afficher les UO rattachées</button>
+                </ng-container>
+                
+                
+
+            </div>
+            
+            <div class="col-sm-3">
+                <span [ngClass]="showFormDossierData?.dataDossier?.typeRM==1 ? 'disabledOrderList' : ''">
+                <p-orderList header="Agents disponibles" [value]="listAgent" filterBy="label" 
+                styleClass="cu-orderListAgent"
+                [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
+                    <ng-template let-list pTemplate="item">
+                        <span class="source">
+                            <span class="pi pi-user {{list.color}}"></span>
+                            <span class="p-popup">
+                            {{list.label}} {{list.id}}
+                            </span>
+                          </span>
+                    </ng-template>
+                </p-orderList>
+                </span>
+
+
+
+                 <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==2">
+                <button class="btn btn-sm btn-primary w-100 mt-3"
+                 (click)="editAgentList()"
+                >Modifier les agents rattachées</button>
+                 </ng-container>
+
+                 <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==1">
+                    <button class="btn btn-sm btn-primary w-100 mt-3"
+                     (click)="showPrestationAgentUnivers=true"
+                    >Afficher les agents rattachées</button>
+                     </ng-container>
+
+
             </div>
             <div class="col-sm-3">
-                <p-orderList header="Unités Organisationnelles disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListUo">
+                <span [ngClass]="showFormDossierData?.dataDossier?.typeRM==1 ? 'disabledOrderList' : ''">
+                <p-orderList header="Comptes techniques disponibles" [value]="listAgent" filterBy="label" 
+                styleClass="cu-orderListAccount"
+                [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
                     <ng-template let-list pTemplate="item">
-                        <div class="item-list">
-                            <span class="picto">
-                                <span class="pi pi-circle-fill {{list.color}}"></span>
+                        <span class="source">
+                            <span class="pi pi-user {{list.color}}"></span>
+                            <span class="p-popup">
+                            {{list.label}} {{list.id}}
                             </span>
-                            <span class="text-{{list.colorText}}">{{list.label}}</span>
-                        </div>
+                          </span>
                     </ng-template>
                 </p-orderList>
-                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les UO rattachées</button>
-            </div>
-            <div class="col-sm-3">
-                <p-orderList header="Contributeurs disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListAgent">
-                    <ng-template let-list pTemplate="item">
-                        <div class="item-list">
-                            <span class="picto">
-                                <span class="pi pi-circle-fill {{list.color}}"></span>
-                            </span>
-                            <span class="text-{{list.colorText}}">{{list.label}}</span>
-                        </div>
-                    </ng-template>
-                </p-orderList>
-                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les agents rattachées</button>
-            </div>
-            <div class="col-sm-3">
-                <p-orderList header="Comptes techniques disponibles" [value]="list1" filterBy="label" styleClass="cu-orderListAccount">
-                    <ng-template let-list pTemplate="item">
-                        <div class="item-list">
-                            <span class="picto">
-                                <span class="pi pi-circle-fill {{list.color}}"></span>
-                            </span>
-                            <span class="text-{{list.colorText}}">{{list.label}}</span>
-                        </div>
-                    </ng-template>
-                </p-orderList>
-                <button class="btn btn-sm btn-primary w-100 mt-3">Modifier les comptes rattachés</button>
+            </span>
+
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==2 ">
+                <button class="btn btn-sm btn-primary w-100 mt-3"
+                
+                >Modifier les comptes rattachés</button>
+            </ng-container>
+
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==1 ">
+                <button class="btn btn-sm btn-primary w-100 mt-3"
+                (click)="showTechnicalAccountsUniver=true"
+                >Afficher les comptes rattachés</button>
+            </ng-container>
+
+
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 text-center">
-                <button pButton type="button" label="Modifier la liste" class="p-button p-button-default w-50">
-                </button>
-            </div>
-            <div class="col-sm-6 text-center">
-                <button pButton type="button" (click)="saveData()" label="Sauvegarde" class="p-button p-button-success w-50">
-                </button>
-            </div>
+
+           
+            
+            <!--RMC-->
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM==1 ">
+              
+             <ng-container *ngIf="showFormDossierData?.dataDossier?.cdStatutDossier==0 ||
+             showFormDossierData?.dataDossier?.cdStatutDossier==1
+             ">
+                <div class="col-sm-8 text-center">
+                    <button pButton type="button" label="Valider les modification du dossier"
+                     class="p-button p-button-success w-50" 
+                     (click)="UpdateAccreditationPortfolios()">
+                    </button>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <button pButton type="button" label="Annuler" 
+                    class="p-button p-button-default w-50" (click)="confirmationAnnuler()" >
+                    </button>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.cdStatutDossier==3 
+             ">
+                <div class="col-sm-8 text-center">
+                    <button pButton type="button" label="Valider les modification du dossier"
+                     class="p-button p-button-success w-50" 
+                     (click)="UpdateAccreditationPortfolios()">
+                    </button>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <button pButton type="button" label="Clôturer le dossier" 
+                    class="p-button p-button-default w-50" (click)="confirmationAnnuler()" >
+                    </button>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.cdStatutDossier==2">
+                <div class="col-sm-5 text-center">
+                    <button pButton type="button" label="Accepter"
+                    pTooltip="Accepter la demande de validation"
+                     class="p-button p-button-success w-50" 
+                     (click)="UpdateAccreditationPortfolios()">
+                    </button>
+                </div>
+    
+                <div class="col-sm-5 text-center">
+                    <button pButton type="button" label="Refuser" 
+                    pTooltip="Refuser la demande de validation"
+                    class="p-button p-button-default w-50" (click)="confirmationAnnulerdemandeDeValidation()" >
+                    </button>
+                </div>
+
+                <div class="col-sm-2 text-center">
+                    <button pButton type="button" label="Clôturer" 
+                    pTooltip="Clôturer le dossier"
+                    class="p-button p-button-default w-50" (click)="confirmationAnnulerdemandeDeValidation()" >
+                    </button>
+                </div>
+            </ng-container>
+
+            
+            </ng-container>
+
+               <!-- Button Annuler RMF -->
+            <ng-container *ngIf="showFormDossierData?.dataDossier?.typeRM!=1 ">
+               
+                <div class="col-sm-6 text-center">
+                    <button pButton type="button" label="Demande de validation du dossier"
+                     class="p-button p-button-success w-50" 
+                     (click)="UpdateAccreditationPortfolios()">
+                    </button>
+                </div>
+                <!-- Button Annuler RMF -->
+                <ng-container *ngIf="showFormDossierData?.dataDossier?.cdStatutDossier==2">
+                    <div class="col-sm-6 text-center">
+                        <button pButton type="button" label="Annuler la demande de validation" 
+                        class="p-button p-button-default w-50" (click)="confirmationAnnulerdemandeDeValidation()" >
+                        </button>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="showFormDossierData?.dataDossier?.cdStatutDossier==1 
+                || showFormDossierData?.dataDossier?.cdStatutDossier==0">
+                    <div class="col-sm-6 text-center">
+                        <button [disabled]="true" pButton type="button" label="Annuler la demande de validation" 
+                        class="p-button p-button-default w-50" (click)="confirmationAnnulerdemandeDeValidation()" >
+                        </button>
+                    </div>
+                </ng-container>
+
+            </ng-container>
+
+            <br />
+           
+
+
+
+            <!--obsolet
+                <div class="col-sm-6 text-center">
+                    <button pButton type="button" label="Cloturer le dossier" class="p-button p-button-success w-50">
+                    </button>
+                </div>
+            -->
         </div>
     </div>
-</div>
+  </div>
+
+
+
+
+<!--DIALOG Add portfolios-->
+
+<p-dialog [(visible)]="addPortfoliosPrestation" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Rattachement des portefeuilles </span> 
+        </div>
+    </ng-template>
+    <p-pickList sourceHeader="Portefeuilles disponible" 
+    [sourceStyle]="{'height':'18rem'}" [targetStyle]="{'height':'18rem'}"
+    targetHeader="Portefeuilles rattachés" [source]="refPortfoliosPrestationSource" 
+    [target]="refPortfoliosPrestationTarget" filterBy="label"  
+    
+
+    [showSourceControls]="false" [showTargetControls]="false"
+
+    >
+        <ng-template let-list pTemplate="item">
+            <div class="item-list">
+              <span class="source">
+                <span class="pi pi-circle-fill {{list.color}}"></span>
+                <span class="p-popup">
+                  ({{list.id}}) {{list.label}} 
+                </span>
+              </span>
+            </div>
+        </ng-template>
+    </p-pickList>
+  
+    <div id="addComments" class="mt-3">
+      <label for="" class="mb-2">Commentaire</label>
+      <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+      [(ngModel)]="commentaire"></textarea>
+  </div>
+  
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Annuler changements" class="p-button p-button-default" (click)="addPortfoliosPrestation=false">
+      </button>
+        <button pButton type="button" label="Confirmer" class="p-button p-button-success" 
+         (click)="attachedPortfoliosPrestation()">
+      </button>
+    </div>
+  </p-dialog>
+
+
+   <!--*******UO ADD prestation******-->
+<p-dialog [(visible)]="addPrestationUOSubUnivers" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Administration UO </span> 
+        </div>
+    </ng-template>
+    <p-pickList sourceHeader="UO disponible"
+  
+    [sourceStyle]="{'height':'18rem'}" [targetStyle]="{'height':'18rem'}"
+  
+    targetHeader="UO rattachés" [source]="refPrestationUOSource" 
+    [target]="refPrestationUOTarget" filterBy="label"  >
+        <ng-template let-list pTemplate="item">
+            <div class="item-list">
+                
+                <span class="source">
+                  <span class="pi pi-folder primary {{list.color}}"></span>
+                  <span class="p-popup">
+                  {{list.label}}</span>
+                </span>
+              
+            </div>
+        </ng-template>
+    </p-pickList>
+  
+    <div id="addComments" class="mt-3">
+      <label for="" class="mb-2">Commentaire</label>
+      <textarea [rows]="5" [cols]="30"
+      [(ngModel)]="commentaire"
+      pInputTextarea autoResize="autoResize"></textarea>
+  </div>
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Annuler changements" class="p-button p-button-default" (click)="addPrestationUOSubUnivers=false">
+      </button>
+        <button pButton type="button" label="Confirmer" class="p-button p-button-success"  (click)="addPrestationUOSubUnivers=false">
+      </button>
+    </div>
+  </p-dialog>
+  
+
+
+
+
+     <!--*******show UO******-->
+<p-dialog [(visible)]="showPrestationUOUniver" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>UO rattachées </span> 
+        </div>
+    </ng-template>
+    
+    <p-orderList header="Unités Organisationnelles disponibles" 
+    [value]="list1" filterBy="label" styleClass="cu-orderListUo"
+    [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
+        <ng-template let-list pTemplate="item">
+            <span class="source">
+                <span class="pi pi-folder primary secondary"></span>
+                <span class="p-popup">
+                {{list.label}}</span>
+            </span>
+        </ng-template>
+    </p-orderList>
+    
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Fermer" class="p-button p-button-default" (click)="showPrestationUOUniver=false">
+      </button>
+        
+    </div>
+  </p-dialog>
+  
+
+
+  
+
+
+
+  <!--*******atachement agent ******-->
+<p-dialog [(visible)]="addPrestationAgentSubUnivers" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Rattachement des Agents </span> 
+        </div>
+    </ng-template>
+    <p-pickList sourceHeader="Agents disponible"
+    [sourceStyle]="{'height':'18rem'}" [targetStyle]="{'height':'18rem'}"
+  
+    targetHeader="Agents rattachés" [source]="refPrestationAgentSource" 
+    [target]="refPrestationAgentTarget" filterBy="label"  >
+        <ng-template let-list pTemplate="item">
+            <div class="item-list">
+              <span class="source">
+                <span class="pi pi-circle-fill {{list.color}}"></span>
+                <span class="p-popup">
+                {{list.label}} ({{list.id}})
+                </span>
+              </span>
+            </div>
+        </ng-template>
+    </p-pickList>
+  
+
+    
+    <div id="addComments" class="mt-3">
+      <label for="" class="mb-2">Commentaire</label>
+      <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+      [(ngModel)]="commentaire"></textarea>
+  </div>
+  
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Annuler changements" class="p-button p-button-default" (click)="addPrestationAgentSubUnivers=false">
+      </button>
+        <button pButton type="button" label="Confirmer" class="p-button p-button-success"  (click)="attachedAgentPrestation()">
+      </button>
+    </div>
+  </p-dialog>
+
+
+
+
+
+  
+     <!--*******show Agents******-->
+<p-dialog [(visible)]="showPrestationAgentUnivers" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Agents disponibles </span> 
+        </div>
+    </ng-template>
+   
+
+    <p-orderList header="Agents disponibles" [value]="listAgent" filterBy="label" 
+    styleClass="cu-orderListAgent"
+    [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
+        <ng-template let-list pTemplate="item">
+            <span class="source">
+                <span class="pi pi-circle-fill {{list.color}}"></span>
+                <span class="p-popup">
+                {{list.label}} {{list.id}}
+                </span>
+              </span>
+        </ng-template>
+    </p-orderList>
+    
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Fermer" class="p-button p-button-default" 
+        (click)="showPrestationAgentUnivers=false">
+      </button>
+        
+    </div>
+  </p-dialog>
+
+
+   <!--*******show Agents******-->
+<p-dialog [(visible)]="showTechnicalAccountsUniver" [style]="{width: '80vw'}" [modal]="true">
+    <ng-template pTemplate="header">
+        <div style="display: flex;">
+            <span>Comptes techniques disponibles </span> 
+        </div>
+    </ng-template>
+   
+
+    <p-orderList header="Comptes techniques disponibles" [value]="listAgent" filterBy="label" 
+    styleClass="cu-orderListAgent"
+    [listStyle]="{'max-height':'15rem','min-height':'15rem'}">
+        <ng-template let-list pTemplate="item">
+            <span class="source">
+                <span class="pi pi-circle-fill {{list.color}}"></span>
+                <span class="p-popup">
+                {{list.label}} {{list.id}}
+                </span>
+              </span>
+        </ng-template>
+    </p-orderList>
+    
+    <div class="btn-picklist-add">
+        <button pButton type="button" label="Fermer" class="p-button p-button-default" 
+        (click)="showTechnicalAccountsUniver=false">
+      </button>
+        
+    </div>
+  </p-dialog>
+
+
+
+
+  
+
+  
